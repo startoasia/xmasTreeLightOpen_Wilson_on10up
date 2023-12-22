@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <script type="text/javascript">
+        var reurl = new Array();
+
+        // 取得url的參數
+        var oURL = GetURLParameter("fromSample");
+
+        //＊＊＊＊＊ 請輸入要跳轉網址URL ＊＊＊＊＊
+        reurl[0] = "https://snova.com.tw/" + oURL;
+        //可以再新增, 唯, [0], [1], [2], [3], [4], 這個不能跳號
+
+        var maxNum = reurl.length - 1;
+        var minNum = 0;
+        var n = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+
+        var nowTime = new Date();
+
+        // ==== 開始跳轉時間 ====
+        var setTime = new Date(2024, 0, 2, 9, 59, 59); //2021/2/25/17:24:00
+        // new Date(年,月,日,時,分,秒)
+        // p.s: JavaScript 表達月份 (month) 是從 0 到 11，0 是一月；11 是十二月。
+
+        // ===================
+
+        if (nowTime >= setTime) {
+            location.href = reurl[n];
+        }
+
+        // 取得url的參數函式
+        function GetURLParameter(oStr) {
+            var utm_source = "utm_source";
+            var utm_medium = "utm_medium";
+            var utm_campaign = "utm_campaign";
+            var utm_content = "utm_content";
+
+            var t_Str = "?";
+            var utm_check = 0;
+            var par_check = 0;
+
+            // Create a test URLSearchParams object
+            var sPageURL = new URLSearchParams(window.location.search.substring(1));
+
+            // Log the values
+            sPageURL.forEach(function(value, key) {
+                //console.log(value, key);
+
+                switch (key.toLowerCase()) {
+                    case "utm_source":
+                        utm_check++;
+                        break;
+                    case "utm_medium":
+                        utm_check++;
+                        break;
+                    case "utm_campaign":
+                        if (oStr !== "") {
+                            value = value + "_" + oStr;
+                        }
+                        utm_check++;
+                        break;
+                    default:
+                        break;
+                }
+
+                t_Str = t_Str + key + "=" + value + "&";
+                par_check++;
+            });
+
+            if (t_Str == "?" || utm_check < 1) {
+                //＊＊＊＊＊ 若沒帶參數來到此頁面時，希望自動幫忙帶入的參數資訊可開啟此段程式，關閉下面那段 ＊＊＊＊＊
+                // if (par_check > 0) {
+                //     t_Str = t_Str.substring(0, t_Str.length - 1) + "&utm_source=參數一&utm_medium=參數二&utm_campaign=參數三";
+                // } else {
+                //     t_Str = t_Str + "utm_source=參數一&utm_medium=參數二&utm_campaign=參數三";
+                // }
+
+                //＊＊＊＊＊ 若沒帶參數來到此頁面時，且不想帶其他參數時，則關閉上面的程式，開啟下面的程式 ＊＊＊＊＊
+                t_Str = t_Str.substring(0, t_Str.length - 1) + "";
+            } else {
+                t_Str = t_Str.substring(0, t_Str.length - 1);
+            }
+
+            return t_Str;
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【snova】年末盛典 | 日/夜霜 優惠組合36折～立即囤貨！</title>
+    <meta name="description" content="精美好禮送給您，買越多送越多! 限定組合優惠，不要錯過！">
+    <meta name="keywords" content="snova、絲若雪、胎盤素、高濃度胎盤素精華、胎盤日間防護乳霜、胎盤夜間加強保濕乳霜配合保濕乳液、日本製、保濕、凍齡、抗老、防護">
+    <meta name="referrer" content="unsafe-url">
+    <meta property="og:image" content="./images/300x300.jpg" />
+
+    <!-- aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="./css/animation.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MSGQMGN');
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSGQMGN"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="loading">
+        <div class="loadingbox">
+            <img class="logo" src="./images/logo.png">
+            <p>復甦肌膚美，是我們的使命</p>
+        </div>
+    </div>
+
+    <div class="timebox">
+        <div class="timer">
+            活動倒數 <span id="countdown"></span>
+        </div>
+    </div>
+
+    <div id="LP" class="wrapper">
+        <section class="bg bg1">
+            <div class="content">
+                <img src="./images/bg/bg_01.jpg" width="1000" height="874">
+
+                <img class="fv-title" src="./images/fv_title.png">
+                <img class="fv-ball1" src="./images/ball_L.png">
+                <img class="fv-ball2" src="./images/ball_R.png">
+            </div>
+        </section>
+
+        <section class="bg bg2">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_02.jpg" width="1000" height="987">
+
+                <div class="fv-36x">
+                    <div class="light">
+                        <img src="./images/fv_sale_36.png">
+                    </div>
+                </div>
+                <img class="lazy fv-pd1 float" data-src="./images/fv_pd_01.png">
+                <img class="lazy fv-pd2 float" data-src="./images/fv_pd_02.png">
+                <img class="lazy fv-light1" data-src="./images/light.png">
+                <img class="lazy fv-light2" data-src="./images/light.png">
+                <img class="lazy fv-light3" data-src="./images/light_02.png">
+                <img class="lazy fv-light4" data-src="./images/light_03.png">
+                <img class="lazy fv-ball3" data-src="./images/ball_R.png">
+            </div>
+        </section>
+
+        <section class="bg bg3">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_03.jpg" width="1000" height="975">
+
+                <img class="lazy s3-gift" data-aos="fade-left" data-src="./images/gift_01.png" width="429" height="429">
+            </div>
+        </section>
+
+        <section class="bg bg4">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_04.jpg" width="1000" height="486">
+
+                <video class="s4-video" autoplay="autoplay" loop="loop" muted="muted" playsinline>
+                    <source src="./images/gift.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <section class="bg bg5">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_05.jpg" width="1000" height="782">
+            </div>
+        </section>
+
+        <section class="bg bg6">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_06.jpg" width="1000" height="962">
+
+                <img class="lazy s6-gift" data-aos="fade-left" data-src="./images/gift_02.png" alt="">
+            </div>
+        </section>
+
+        <section class="bg bg7">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_07.jpg" width="1000" height="637">
+
+                <img class="lazy s7-item1" data-aos="fade-up" data-src="./images/img-20.png">
+            </div>
+        </section>
+
+        <section class="bg bg8">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_08.jpg" width="1000" height="1685">
+
+                <img class="lazy s8-title" data-aos="zoom-in" data-src="./images/pd_title.png">
+                <img class="lazy s8-pd" data-aos="fade-up" data-src="./images/pd_N.png">
+                <div class="s8-item1">
+                    <div class="light">
+                        <img class="lazy" data-src="./images/award_N.png">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg bg9">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_09.jpg" width="1000" height="1075">
+
+                <img class="lazy s9-pd" data-aos="fade-up" data-src="./images/pd_D.png">
+            </div>
+        </section>
+
+        <section class="bg bg10">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_10.jpg" width="1000" height="620">
+
+                <div class="s10-videobox">
+                    <iframe class="lazy" width="560" height="315" data-src="https://www.youtube.com/embed/YQDRknU7G30?si=g7jKFQdzOJE9dnHT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- offer -->
+        <div id="offer"></div>
+
+        <section class="bg bg11">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_11.jpg" width="1000" height="531">
+
+                <img class="lazy offer_title" data-src="./images/offer_title.png">
+            </div>
+        </section>
+
+        <section class="bg bg12">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_12.jpg" width="1000" height="1133">
+
+                <img class="lazy offer1_gift" data-aos="fade-left" data-src="./images/gift_680.png">
+            </div>
+        </section>
+
+        <section class="bg bg13">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_13.jpg" width="1000" height="252">
+
+                <a class="scrollLink offer1_btn" href="#lp_form" onclick="acsSelect('CRMNCC03')">
+                    <div class="light">
+                        <img src="./images/btn_36.png">
+                    </div>
+                    <img class="offer_click click" src="./images/click.png">
+                </a>
+            </div>
+        </section>
+
+        <section class="bg bg14">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_14.jpg" width="1000" height="1213">
+
+                <img class="lazy offer2_gift" data-aos="fade-left" data-src="./images/gift_580.png">
+            </div>
+        </section>
+
+        <section class="bg bg15">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_15.jpg" width="1000" height="266">
+
+                <a class="scrollLink offer2_btn" href="#lp_form" onclick="acsSelect('DC03')">
+                    <div class="light">
+                        <img src="./images/btn_36.png">
+                    </div>
+                    <img class="offer_click click" src="./images/click.png">
+                </a>
+            </div>
+        </section>
+
+        <section class="bg bg16">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_16.jpg" width="1000" height="1491">
+
+                <img class="lazy offer3_gift" data-aos="fade-left" data-src="./images/gift_680.png">
+            </div>
+        </section>
+
+        <section class="bg bg17">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_17.jpg" width="1000" height="264">
+
+                <a class="scrollLink offer3_btn" href="#lp_form" onclick="acsSelect('DNCset-2')">
+                    <div class="light">
+                        <img src="./images/btn_36.png">
+                    </div>
+                    <img class="offer_click click" src="./images/click.png">
+                </a>
+            </div>
+        </section>
+
+        <section class="bg bg18">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_18.jpg" width="1000" height="1452">
+
+                <img class="lazy offer4_36x float" data-src="./images/offer_sale_36.png">
+                <img class="lazy offer4_gift" data-aos="fade-left" data-src="./images/gift_780.png">
+            </div>
+        </section>
+
+        <section class="bg bg19">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_19.jpg" width="1000" height="263">
+
+                <a class="scrollLink offer4_btn" href="#lp_form" onclick="acsSelect('CRMNCC05')">
+                    <div class="light">
+                        <img src="./images/btn_01.png">
+                    </div>
+                    <img class="offer_click click" src="./images/click.png">
+                </a>
+            </div>
+        </section>
+
+        <section class="bg bg20">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_20.jpg" width="1000" height="1452">
+
+                <img class="lazy offer5_36x float" data-src="./images/offer_sale_36.png">
+                <img class="lazy offer5_gift" data-aos="fade-left" data-src="./images/gift_680.png">
+            </div>
+        </section>
+
+        <section class="bg bg21">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_21.jpg" width="1000" height="259">
+
+                <a class="scrollLink offer5_btn" href="#lp_form" onclick="acsSelect('DC05')">
+                    <div class="light">
+                        <img src="./images/btn_01.png">
+                    </div>
+                    <img class="offer_click click" src="./images/click.png">
+                </a>
+            </div>
+        </section>
+
+        <section class="bg bg22">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_22.jpg" width="1000" height="1009">
+            </div>
+        </section>
+
+        <section class="bg bg23">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_23.jpg" width="1000" height="324">
+            </div>
+        </section>
+
+        <div id="hide"></div>
+
+        <section class="bg bg24">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_24.jpg" width="1000" height="343">
+
+                <a href="tel:0809071500">
+                    <img class="lazy phone scale" data-src="./images/btn_call.png">
+                </a>
+            </div>
+        </section>
+
+        <section class="bg bg25">
+            <div class="content">
+                <img class="lazy" data-src="./images/bg/bg_25.jpg" width="1000" height="646">
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const Loading = document.querySelector('#loading');
+        const Logo = document.querySelector('.logo');
+        const Word = document.querySelector('#loading p');
+        const Title = document.querySelector('.fv-title');
+        const Light1 = document.querySelector('.fv-light1');
+        const Light2 = document.querySelector('.fv-light2');
+        const Light3 = document.querySelector('.fv-light3');
+        const Light4 = document.querySelector('.fv-light4');
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                Logo.classList.add('fadeIn');
+            }, 500);
+            setTimeout(() => {
+                Word.classList.add('fadeInDown');
+            }, 1000);
+            setTimeout(() => {
+                Loading.classList.add('fadeOut');
+            }, 2500);
+            setTimeout(() => {
+                Title.classList.add('ZoomIn');
+            }, 2600);
+            setTimeout(() => {
+                Light1.classList.add('lightup');
+            }, 2800);
+            setTimeout(() => {
+                Light2.classList.add('lightup');
+            }, 3200);
+            setTimeout(() => {
+                Light3.classList.add('lightup');
+            }, 3600);
+            setTimeout(() => {
+                Light4.classList.add('lightup');
+            }, 4000);
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 150, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 700, // values from 0 to 3000, with step 50ms
+            easing: "ease", // default easing for AOS animations
+            once: false, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: "top-bottom" // defines which position of the element regarding to window should trigger the animation
+        });
+    </script>
+
+    <script src="./js/counter.js"></script>
+    <script src="./js/lazy.js"></script>
+
+    <script>
+        const Counter = document.querySelector('.timebox');
+        console.log(Counter)
+        const Hide = document.querySelector('#hide');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= Hide.offsetTop) {
+                Counter.style.display = 'none';
+            } else {
+                Counter.style.display = 'block';
+            }
+        })
+    </script>
+
+    <!-- ※LP用|編集削除禁止 -->
+    <div id="acs_lp_form"></div>
+    <script src="https://code.cros.tw/init.js"></script>
+    <!-- ※LP用|編集削除禁止 -->
+</body>
+
+</html>
